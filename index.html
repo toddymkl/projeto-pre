@@ -76,45 +76,6 @@
         max-width: 600px;
       }
     }
-
-    .botao-coracao {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 2rem;
-      padding: 10px 15px;
-      cursor: pointer;
-      z-index: 10;
-      box-shadow: 0 0 10px #ff69b4;
-      transition: transform 0.2s ease;
-    }
-
-    .botao-coracao:hover {
-      transform: scale(1.2);
-    }
-
-    .coracao {
-      position: absolute;
-      color: #ff69b4;
-      font-size: 2rem;
-      animation: flutuar 3s ease-out forwards;
-      pointer-events: none;
-    }
-
-    @keyframes flutuar {
-      0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-150px) scale(1.5);
-      }
-    }
   </style>
 </head>
 <body>
@@ -131,7 +92,7 @@
     </iframe>
   </div>
 
-  <button class="botao-coracao" onclick="criarCoracao()">💗</button>
+  
 
   <script>
     const texto = `Que aleatoriedade foi a gente se conhecer em kkkk.
@@ -159,16 +120,7 @@ I love you, Agatha 💗💗`;
 
     window.onload = escrever;
 
-    function criarCoracao() {
-      const coracao = document.createElement("div");
-      coracao.classList.add("coracao");
-      coracao.innerText = "💗";
-      coracao.style.left = Math.random() * window.innerWidth + "px";
-      coracao.style.bottom = "40px";
-      document.body.appendChild(coracao);
-      setTimeout(() => {
-        coracao.remove();
-      }, 3000);
+    , 3000);
     }
   </script>
 
