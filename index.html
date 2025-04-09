@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Agatha 💛</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      background-image: url('girassol.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #mensagem {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 100%;
+      font-size: 1rem;
+      line-height: 1.5;
+      animation: fadeIn 2s ease-in-out;
+      white-space: pre-line;
+      margin-bottom: 1rem;
+    }
+
+    .spotify-player-container {
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255,255,255,0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .spotify-player {
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      #mensagem {
+        font-size: 1.1rem;
+      }
+
+      .spotify-player-container {
+        max-width: 600px;
+      }
+    }
+
+    .botao-coracao {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 0 10px #ff69b4;
+      transition: transform 0.2s ease;
+    }
+
+    .botao-coracao:hover {
+      transform: scale(1.2);
+    }
+
+    .coracao {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 2rem;
+      animation: flutuar 3s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes flutuar {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-150px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌻 Uma mensagem especial pra você, Agatha 🌻</h1>
+
+  <div id="mensagem"></div>
+
+  <div class="spotify-player-container">
+    <iframe class="spotify-player"
+      style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/5EVv8M3vhByFLLqT1dkdGd?utm_source=generator"
+      width="100%" height="80" frameBorder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+    </iframe>
+  </div>
+
+  <button class="botao-coracao" onclick="criarCoracao()">💗</button>
+
+  <script>
+    const texto = `Que aleatoriedade foi a gente se conhecer em kkkk.
+Nunca pensei que ia realmente tá me interessando por alguém dnv kkkk.
+
+Mas real vei, você chegou e deixou minha vida com cor.
+O seu jeitinho maluca e rabugenta me encanta.
+Seu sorriso... porra vei, que perfeição.
+O seu olhar é único, você é única.
+
+Eu realmente agradeço muito por ter deixado eu ter a chance de poder tá na sua vida, viu minha princesa.
+
+I love you, Agatha 💗💗`;
+
+    let i = 0;
+    const velocidade = 50;
+
+    function escrever() {
+      if (i < texto.length) {
+        document.getElementById("mensagem").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escrever, velocidade);
+      }
+    }
+
+    window.onload = escrever;
+
+    function criarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.classList.add("coracao");
+      coracao.innerText = "💗";
+      coracao.style.left = Math.random() * window.innerWidth + "px";
+      coracao.style.bottom = "40px";
+      document.body.appendChild(coracao);
+      setTimeout(() => {
+        coracao.remove();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
